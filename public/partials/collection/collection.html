@@ -1,0 +1,7 @@
+<h1>{{title}}</h1>
+
+<p><a href="javascript:void(0);" ng-click="add()">Add Comic</a></p>
+
+<div ng-repeat="comic in collection | orderBy:'-price'">
+  {{comic.title}} - Price: {{comic.price}}
+</div>
