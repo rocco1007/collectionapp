@@ -1,0 +1,17 @@
+{
+  "name": "collectionapp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rocco1007/collectionapp",
+  "authors": [
+    "rocco1007 <rsangellino@gmail.com>"
+  ],
+  "description": "App to store comics",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
