@@ -2,13 +2,25 @@
 
 App.controller('CollectionController', ['$scope', '$rootScope', 'collectionService', function HomeController ($scope, $rootScope, collectionService) {
   $scope.title = "My Collection";
-  $scope.collection = collectionService.data.collection;
+    $scope.collection = collectionService;
+
+  collectionService.getData().then(function() {
+    // success
+    
+  }, function() {
+    // error
+  });
 
   $scope.add = function() {
-    collectionService.add({
-      title: "Amazing Spider-Man #2",
-      price: 3.99
+    collectionService.postData({
+      title: "Testing Click Event",
+      price: 9.99
     });
+  }
+
+  $scope.processForm = function() {
+    console.log($scope.info);
+    collectionService.postData($scope.info);
   }
 
 }]);
