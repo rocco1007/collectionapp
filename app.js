@@ -13,7 +13,7 @@ var users = require('./routes/users');
 
 //connect to our database
 //Ideally you will obtain DB details from a config file
-var connectionString = "";
+var connectionString = '';
  
 mongoose.connect(connectionString);
 

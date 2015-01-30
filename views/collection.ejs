@@ -1,23 +1,59 @@
 <!DOCTYPE html>
 <html data-ng-app="App">
   <head>
-  	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta charset="utf-8" />
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" />
-    <title><%= title %></title>
-    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/css/bootstrap.min.css" />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<title><%= title %></title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/css/bootstrap.min.css" />
+	<link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-  	<div class="container">
-    	<ng-view></ng-view>
-    </div>
-    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+	<div class="container">
+	<h1>My Comic Book App</h1>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" href="#">Brand</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+			<li ng-class="{active : activeTab == 'collection'}"><a href="#/collection">My Collection <span class="sr-only">(current)</span></a></li>
+			<li ng-class="{active : activeTab == 'wishlist'}"><a href="#/wishlist">Wich List</a></li>
+			<li ng-class="{active : activeTab == 'add'}"><a href="#/add">Add</a></li>
+		  </ul>
+		  <form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+			  <input type="text" class="form-control" placeholder="Search">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		  </form>
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+		<ng-view></ng-view>
+	</div>
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
 	<script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
-    <script type="text/javascript" src="javascripts/app.js"></script>
-    <script type="text/javascript" src="javascripts/collectionservice.js"></script>
-    <script type="text/javascript" src="partials/collection/CollectionController.js"></script>
+	<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+
+	<script type="text/javascript" src="javascripts/app.js"></script>
+	<script type="text/javascript" src="javascripts/collectionservice.js"></script>
+	<script type="text/javascript" src="partials/collection/CollectionController.js"></script>
+	<script type="text/javascript" src="partials/wishlist/WishlistController.js"></script>
+	<script type="text/javascript" src="partials/add/AddController.js"></script>
   </body>
 </html>

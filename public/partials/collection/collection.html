@@ -1,7 +1,5 @@
 <h1>{{title}}</h1>
 
-<p><a href="javascript:void(0);" ng-click="add()">Add Comic</a></p>
-
-<div ng-repeat="comic in collection.data | orderBy:'-price'">
+<div ng-repeat="comic in collection.data | filter:{inCollection:true} | orderBy:'-title':true">
   {{comic.title}} - Price: {{comic.price}}
 </div>

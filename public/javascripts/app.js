@@ -1,6 +1,6 @@
 'use strict';
 
-var App = angular.module('App', ['ngResource', 'ngRoute']);
+var App = angular.module('App', ['ngResource', 'ngRoute', 'ui.bootstrap']);
 
 App.config(function($routeProvider) {
 	var viewsPath = 'partials/';
@@ -13,10 +13,26 @@ App.config(function($routeProvider) {
 		title: 'My Collection'
 	};
 
+	var wishlist = {
+		templateUrl: viewsPath + 'wishlist/wishlist.html',
+		controller: 'WishlistController',
+		activeTab: 'wishlist',
+		title: 'Wishlist'
+	};
+
+	var add = {
+		templateUrl: viewsPath + 'add/add.html',
+		controller: 'AddController',
+		activeTab: 'add',
+		title: 'Add To Collection'
+	};
+
 	//Defining routes
 	$routeProvider
 		.when("/", collection)
-		.when("/collection", collection);
+		.when("/collection", collection)
+		.when("/wishlist", wishlist)
+		.when("/add", add);
 });
 
 App.run(function($rootScope, $route) {

@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('CollectionController', ['$scope', '$rootScope', 'collectionService', function HomeController ($scope, $rootScope, collectionService) {
+App.controller('CollectionController', ['$scope', '$rootScope', 'collectionService', function CollectionController ($scope, $rootScope, collectionService) {
   $scope.title = "My Collection";
     $scope.collection = collectionService;
 
@@ -16,11 +16,6 @@ App.controller('CollectionController', ['$scope', '$rootScope', 'collectionServi
       title: "Testing Click Event",
       price: 9.99
     });
-  }
-
-  $scope.processForm = function() {
-    console.log($scope.info);
-    collectionService.postData($scope.info);
   }
 
 }]);

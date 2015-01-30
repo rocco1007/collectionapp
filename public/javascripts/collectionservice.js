@@ -20,7 +20,11 @@ App.factory('collectionService', ['$http', '$q', function($http, $q) {
 		  success(function(data, status, headers, config) {
 		    // this callback will be called asynchronously
 		    // when the response is available
-		    o.collection.push(pData);
+		    if(o.collection.length == 0) {
+		    	getData();
+		    } else {
+		    	o.collection.push(pData);
+		    }
 		  }).
 		  error(function(data, status, headers, config) {
 		    // called asynchronously if an error occurs
@@ -32,16 +36,21 @@ App.factory('collectionService', ['$http', '$q', function($http, $q) {
 	function getData() {
 		// Simple POST request example (passing data) :
 		// Simple GET request example :
-		$http.get('/api/books').
-		  then(function(data) {
-		    // this callback will be called asynchronously
-		    // when the response is availableo
-		    angular.copy(data.data, o.collection);
-		    console.log(data);
-		    deferred.resolve();
-		  }, function() {
-		  	deferred.reject();
-		  });
+		if(o.collection.length > 0) {
+			deferred.resolve(o.collection);
+		}
+		else {
+			$http.get('/api/books').
+			  then(function(data) {
+			    // this callback will be called asynchronously
+			    // when the response is availableo
+			    angular.copy(data.data, o.collection);
+			    console.log(data);
+			    deferred.resolve();
+			  }, function() {
+			  	deferred.reject();
+			  });
+		}
 
 		  return deferred.promise;
 	}

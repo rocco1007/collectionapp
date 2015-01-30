@@ -1,0 +1,5 @@
+<h1>{{title}}</h1>
+
+<div ng-repeat="comic in collection.data | filter:{inWishlist:true} | orderBy:'-title':true">
+  {{comic.title}} - Price: {{comic.price}} - Wishlist : {{comic.inWishlist}}
+</div>

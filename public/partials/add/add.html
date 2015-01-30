@@ -1,0 +1,21 @@
+<form novalidate ng-submit="processForm()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" ng-model="book.title" />
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="text" class="form-control" id="price" ng-model="book.price" />
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="book.inCollection" ng-true-value="true" ng-false-value="false" /> Add To My Collection
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="book.inWishlist" ng-true-value="true" ng-false-value="false" /> Add To Wishlist
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
